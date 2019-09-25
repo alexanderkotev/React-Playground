@@ -1,12 +1,11 @@
 import React from 'react';
 import './App.css';
-import DataContainer from './DataContainer';
 
 function App() {
   return (
     <div className="App">
       <main>
-        <DataContainer />
+        <h1 className='page-title'>Welcome!</h1>
       </main>
     </div>
   );

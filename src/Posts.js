@@ -1,18 +1,18 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { List } from "react-virtualized";
-import './dataContainer.scss';
+import './main.scss';
 
-function DataContainer() {
+function Posts() {
 
-  const listHeight = 800;
+  const listHeight = 500;
   const rowHeight = 150;
   const rowWidth = 800;
 
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    axios.get('https://jsonplaceholder.typicode.com/comments/').then((res) => {
+    axios.get('https://jsonplaceholder.typicode.com/posts/').then((res) => {
       setPosts(res.data);
     })
       .catch((e) => {
@@ -20,11 +20,10 @@ function DataContainer() {
       });
   }, []);
 
-  let renderComment = ({ index, key, style }) => {
+  let renderPost = ({ index, key, style }) => {
     return (
-      <div key={key} style={style} className='comment'>
-        <div className='name'>{posts[index].name}</div>
-        <div className='email'>{posts[index].email}</div>
+      <div key={key} style={style} className='data-container'>
+        <div className='title'>{posts[index].title}</div>
         <p className='body'>{posts[index].body}</p>
       </div>
     );
@@ -32,13 +31,14 @@ function DataContainer() {
 
   return (
 
-<div className = "list" >
-      <List
-        width={rowWidth}
-        height={listHeight}
-        rowHeight={rowHeight}
-        rowRenderer={renderComment}
-        rowCount={posts.length} />
+<div className = "Posts" >
+  <h1 className='page-title'>Posts</h1>
+    <List
+      width={rowWidth}
+      height={listHeight}
+      rowHeight={rowHeight}
+      rowRenderer={renderPost}
+      rowCount={posts.length} />
 </div>
     // <div className="DataContainer">
     //   <div>
@@ -56,4 +56,4 @@ function DataContainer() {
   );
 }
 
-export default DataContainer;
+export default Posts;

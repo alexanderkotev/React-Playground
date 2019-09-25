@@ -1,0 +1,16 @@
+.page-title {
+   text-align: center;
+}
+.ReactVirtualized__Grid {
+    margin: 50px auto;
+    .data-container {
+        .name,
+        .title {
+            font-size: 18px;
+            font-weight: 700;
+        }
+        .email {
+            font-style: italic;
+        }
+    }
+}
