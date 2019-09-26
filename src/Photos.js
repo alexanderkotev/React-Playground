@@ -25,7 +25,7 @@ function Photos() {
     return (
       <div key={key} style={style} className='data-container'>
         <div className='title'>{photos[columnIndex].title}</div>
-        <img src={photos[columnIndex].thumbnailUrl} className='thumbnailUrl' />
+        <img src={photos[columnIndex].thumbnailUrl} className='image' />
       </div>
     );
   };
