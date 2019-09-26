@@ -40,19 +40,6 @@ function Posts() {
       rowRenderer={renderPost}
       rowCount={posts.length} />
 </div>
-    // <div className="DataContainer">
-    //   <div>
-    //     {
-    //       posts.map(post => (
-    //         <div>
-    //           <h1 key={post.id}>{post.name}</h1>
-    //           <h1>{post.email}</h1>
-    //           <p>{post.body}</p>
-    //         </div>
-    //       ))
-    //     }
-    //   </div>
-    // </div>
   );
 }
 
