@@ -7,7 +7,7 @@ function Comments() {
 
   const listHeight = 500;
   const rowHeight = 150;
-  const rowWidth = 800;
+  const rowWidth = 1500;
 
   const [comments, setComments] = useState([]);
 

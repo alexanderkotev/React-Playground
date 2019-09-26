@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { List } from "react-virtualized";
+import { Grid} from "react-virtualized";
 import './main.scss';
 
 function Photos() {
 
   const listHeight = 500;
-  const rowHeight = 200;
-  const rowWidth = 800;
+  const rowHeight = 300;
+  const rowWidth = 1500;
+  const columnWidth = 500;
 
   const [photos, setPhotos] = useState([]);
 
@@ -20,39 +21,29 @@ function Photos() {
       });
   }, []);
 
-  let renderPhoto = ({ index, key, style }) => {
+  let renderPhoto = ({ columnIndex, key, rowIndex, style }) => {
     return (
       <div key={key} style={style} className='data-container'>
-        <div className='title'>{photos[index].title}</div>
-        <img src={photos[index].thumbnailUrl} className='thumbnailUrl' />
+        <div className='title'>{photos[columnIndex].title}</div>
+        <img src={photos[columnIndex].thumbnailUrl} className='thumbnailUrl' />
       </div>
     );
   };
 
   return (
 
-<div className = "Photos" >
-  <h1 className='page-title'>Photos</h1>
-    <List
-      width={rowWidth}
-      height={listHeight}
-      rowHeight={rowHeight}
-      rowRenderer={renderPhoto}
-      rowCount={photos.length} />
+    <div className="Photos" >
+      <h1 className='page-title'>Photos</h1>
+      <Grid
+        cellRenderer={renderPhoto}
+        columnCount={photos.length}
+        columnWidth={columnWidth}
+        height={listHeight}
+        rowCount={photos.length}
+        rowHeight={rowHeight}
+        width={rowWidth}
+      />,
 </div>
-    // <div className="DataContainer">
-    //   <div>
-    //     {
-    //       posts.map(post => (
-    //         <div>
-    //           <h1 key={post.id}>{post.name}</h1>
-    //           <h1>{post.email}</h1>
-    //           <p>{post.body}</p>
-    //         </div>
-    //       ))
-    //     }
-    //   </div>
-    // </div>
   );
 }
 
