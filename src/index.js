@@ -1,30 +1,19 @@
-import React from 'react'
+import React from 'react';
 import * as serviceWorker from './serviceWorker';
-import ReactDOM from 'react-dom'
-import './index.css'
-import './header.scss'
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
-import App from './App'
-import Comments from './Comments'
-import Posts from './Posts'
-import Photos from './Photos'
+import ReactDOM from 'react-dom';
+import './index.css';
+import './styles/header.scss';
+import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
+import App from './App';
+import Comments from './components/Comments';
+import Posts from './components/Posts';
+import Photos from './components/Photos';
+import Dropdown from './components/Dropdown';
+
 const routing = (
   <Router>
     <header>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/comments">Comments</Link>
-        </li>
-        <li>
-          <Link to="/posts">Posts</Link>
-        </li>
-        <li>
-          <Link to="/photos">Photos</Link>
-        </li>
-      </ul>
+      <Dropdown />
       <Route exact path="/" component={App} />
       <Route path="/comments" component={Comments} />
       <Route path="/posts" component={Posts} />

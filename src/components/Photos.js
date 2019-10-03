@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Grid} from "react-virtualized";
-import './main.scss';
+import '../styles/main.scss';
 
 function Photos() {
 
