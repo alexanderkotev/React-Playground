@@ -12,6 +12,7 @@ function Comments() {
   const [comments, setComments] = useState([]);
 
   useEffect(() => {
+    
     axios.get('https://jsonplaceholder.typicode.com/comments/').then((res) => {
       setComments(res.data);
     })
@@ -30,6 +31,8 @@ function Comments() {
     );
   };
 
+  console.log(comments);
+
   return (
 
 <div className = "Comments" >
@@ -44,4 +47,8 @@ function Comments() {
   );
 }
 
-export default Comments;
+function CompareState(prev, next) {
+  return prev != next;
+}
+
+export default React.memo(Comments, CompareState);

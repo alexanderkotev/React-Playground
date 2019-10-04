@@ -47,4 +47,8 @@ function Photos() {
   );
 }
 
-export default Photos;
+function CompareState(prev, next) {
+  return prev != next;
+}
+
+export default React.memo(Photos, CompareState);

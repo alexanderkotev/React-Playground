@@ -43,4 +43,8 @@ function Posts() {
   );
 }
 
-export default Posts;
+function CompareState(prev, next) {
+  return prev != next;
+}
+
+export default React.memo(Posts, CompareState);
