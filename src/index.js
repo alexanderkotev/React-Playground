@@ -14,11 +14,11 @@ const routing = (
   <Router>
     <header>
       <Dropdown />
-      <Route exact path="/" component={App} />
-      <Route path="/comments" component={Comments} />
-      <Route path="/posts" component={Posts} />
-      <Route path="/photos" component={Photos} />
     </header>
+    <Route exact path="/" component={App} />
+    <Route path="/comments" component={Comments} />
+    <Route path="/posts" component={Posts} />
+    <Route path="/photos" component={Photos} />
   </Router>
 )
 ReactDOM.render(routing, document.getElementById('root'))
