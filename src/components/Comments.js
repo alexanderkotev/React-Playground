@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { List } from "react-virtualized";
+import { List, AutoSizer } from "react-virtualized";
 import '../styles/main.scss';
 
 function Comments() {
@@ -12,7 +12,7 @@ function Comments() {
   const [comments, setComments] = useState([]);
 
   useEffect(() => {
-    
+
     axios.get('https://jsonplaceholder.typicode.com/comments/').then((res) => {
       setComments(res.data);
     })
@@ -35,15 +35,19 @@ function Comments() {
 
   return (
 
-<div className = "Comments" >
-  <h1 className='page-title'>Comments</h1>
-    <List
-      width={rowWidth}
-      height={listHeight}
-      rowHeight={rowHeight}
-      rowRenderer={renderComment}
-      rowCount={comments.length} />
-</div>
+    <div className="Comments" >
+      <h1 className='page-title'>Comments</h1>
+      <AutoSizer>
+        {({ height, width }) => (
+          <List
+            width={width}
+            height={listHeight}
+            rowHeight={rowHeight}
+            rowRenderer={renderComment}
+            rowCount={comments.length} />
+        )}
+      </AutoSizer>
+    </div>
   );
 }
 

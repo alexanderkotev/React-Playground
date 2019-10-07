@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Grid} from "react-virtualized";
+import { Grid, AutoSizer } from "react-virtualized";
 import '../styles/main.scss';
 
 function Photos() {
@@ -34,16 +34,22 @@ function Photos() {
 
     <div className="Photos" >
       <h1 className='page-title'>Photos</h1>
-      <Grid
-        cellRenderer={renderPhoto}
-        columnCount={photos.length}
-        columnWidth={columnWidth}
-        height={listHeight}
-        rowCount={photos.length}
-        rowHeight={rowHeight}
-        width={rowWidth}
-      />,
-</div>
+      <AutoSizer>
+        {({ height, width }) => (
+          <Grid
+            autoContainerWidth={true}
+            cellRenderer={renderPhoto}
+            columnCount={Math.floor(width / columnWidth)}
+            columnWidth={columnWidth}
+            height={listHeight}
+            rowCount={photos.length}
+            rowHeight={rowHeight}
+            width={width}
+          />
+        )}
+      </AutoSizer>
+
+    </div>
   );
 }
 

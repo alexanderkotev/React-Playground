@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { List } from "react-virtualized";
+import { List, AutoSizer } from "react-virtualized";
 import '../styles/main.scss';
 
 function Posts() {
@@ -31,15 +31,19 @@ function Posts() {
 
   return (
 
-<div className = "Posts" >
-  <h1 className='page-title'>Posts</h1>
-    <List
-      width={rowWidth}
-      height={listHeight}
-      rowHeight={rowHeight}
-      rowRenderer={renderPost}
-      rowCount={posts.length} />
-</div>
+    <div className="Posts" >
+      <h1 className='page-title'>Posts</h1>
+      <AutoSizer>
+        {({ height, width }) => (
+          <List
+            width={width}
+            height={listHeight}
+            rowHeight={rowHeight}
+            rowRenderer={renderPost}
+            rowCount={posts.length} />
+        )}
+      </AutoSizer>
+    </div>
   );
 }
 
