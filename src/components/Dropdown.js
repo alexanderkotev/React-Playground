@@ -7,7 +7,7 @@ function Dropdown() {
     const [showContent, setShow] = useState(false);
 
      useEffect(() => {
-        if (showContent == true) {
+        if (showContent === true) {
             document.addEventListener('click', hideMenu);
         }
     }, [showContent]);

@@ -7,7 +7,6 @@ function Comments() {
 
   const listHeight = 500;
   const rowHeight = 150;
-  const rowWidth = 1500;
 
   const [comments, setComments] = useState([]);
 
@@ -31,12 +30,10 @@ function Comments() {
     );
   };
 
-  console.log(comments);
-
   return (
 
     <div className="Comments" >
-      <h1 className='page-title'>Comments</h1>
+      <h1 className='text-center text-lg mt-6 font-bold'>Comments</h1>
       <AutoSizer>
         {({ height, width }) => (
           <List
@@ -52,7 +49,7 @@ function Comments() {
 }
 
 function CompareState(prev, next) {
-  return prev != next;
+  return prev !== next;
 }
 
 export default React.memo(Comments, CompareState);

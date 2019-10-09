@@ -7,7 +7,6 @@ function Photos() {
 
   const listHeight = 500;
   const rowHeight = 300;
-  const rowWidth = 1500;
   const columnWidth = 500;
 
   const [photos, setPhotos] = useState([]);
@@ -25,7 +24,7 @@ function Photos() {
     return (
       <div key={key} style={style} className='data-container'>
         <div className='title'>{photos[columnIndex].title}</div>
-        <img src={photos[columnIndex].thumbnailUrl} className='image' />
+        <img alt={photos[columnIndex].thumbnailUrl} src={photos[columnIndex].thumbnailUrl} className='image' />
       </div>
     );
   };
@@ -33,7 +32,7 @@ function Photos() {
   return (
 
     <div className="Photos" >
-      <h1 className='page-title'>Photos</h1>
+      <h1 className='text-center text-lg mt-6 font-bold'>Photos</h1>
       <AutoSizer>
         {({ height, width }) => (
           <Grid
@@ -54,7 +53,7 @@ function Photos() {
 }
 
 function CompareState(prev, next) {
-  return prev != next;
+  return prev !== next;
 }
 
 export default React.memo(Photos, CompareState);

@@ -7,7 +7,6 @@ function Posts() {
 
   const listHeight = 500;
   const rowHeight = 150;
-  const rowWidth = 1500;
 
   const [posts, setPosts] = useState([]);
 
@@ -32,7 +31,7 @@ function Posts() {
   return (
 
     <div className="Posts" >
-      <h1 className='page-title'>Posts</h1>
+      <h1 className='text-center text-lg mt-6 font-bold'>Posts</h1>
       <AutoSizer>
         {({ height, width }) => (
           <List
@@ -48,7 +47,7 @@ function Posts() {
 }
 
 function CompareState(prev, next) {
-  return prev != next;
+  return prev !== next;
 }
 
 export default React.memo(Posts, CompareState);
