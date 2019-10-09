@@ -1,7 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import ReactDOM from 'react-dom';
-import axios from 'axios';
-import { List } from "react-virtualized";
 import '../styles/modal.scss';
 
 
@@ -16,7 +13,7 @@ function Modal() {
     return (
         <React.Fragment>
             {
-                !showModal && <button className="button-default" onClick={toggle}>Show Modal</button>
+                !showModal && <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={toggle}>Show Modal</button>
             }
             {
                 showModal &&
@@ -24,11 +21,11 @@ function Modal() {
                         <div className="modal-wrapper" aria-modal aria-hidden tabIndex={-1} role="dialog">
                             <div className="modal">
                                 <div className="modal-header">
-                                    <button type="button" className="modal-close-button" data-dismiss="modal" aria-label="Close" onClick={toggle}>
+                                    <button type="button" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" data-dismiss="modal" aria-label="Close" onClick={toggle}>
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <p>
+                                <p className='text-grey-500 text-lg'>
                                    Modal window content
                                 </p>
                             </div>

@@ -2,13 +2,13 @@ import React from 'react';
 import * as serviceWorker from './serviceWorker';
 import ReactDOM from 'react-dom';
 import './index.css';
-import './styles/header.scss';
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 import App from './App';
 import Comments from './components/Comments';
 import Posts from './components/Posts';
 import Photos from './components/Photos';
 import Dropdown from './components/Dropdown';
+import Form from './components/Form';
 
 const routing = (
   <Router>
@@ -19,6 +19,7 @@ const routing = (
     <Route path="/comments" component={Comments} />
     <Route path="/posts" component={Posts} />
     <Route path="/photos" component={Photos} />
+    <Route path="/form" component={Form} />
   </Router>
 )
 ReactDOM.render(routing, document.getElementById('root'))

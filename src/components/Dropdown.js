@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'
+import '../styles/header.scss';
 
 function Dropdown() {
 
@@ -24,7 +25,7 @@ function Dropdown() {
                     <Link to="/">Home</Link>
                 </div>
                 <div className="menu-item dropdown-menu" onClick={() => {setShow(!showContent)}}>
-                    <a href="#">Menu <span className="dropdown-arrow">{showContent ? '▲' : '▼'} </span> </a>
+                    <a href="#">Menu <span className="dropdown-arrow text-xs">{showContent ? '▲' : '▼'} </span> </a>
                 {showContent ?
                     (
                         <div className="dropdown-content">
@@ -36,6 +37,9 @@ function Dropdown() {
                             </div>
                             <div className="dropdown-item">
                                 <Link to="/photos">Photos</Link>
+                            </div>
+                            <div className="dropdown-item">
+                                <Link to="/form">Tailwind Form</Link>
                             </div>
                         </div>
                     )
